@@ -1,26 +1,19 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+import ListView from "../views/ListView";
 
 Vue.use(VueRouter);
 
-const routes = [
-  {
-    path: "/",
-    name: "home",
-    component: Home
-  },
-  {
-    path: "/about",
-    name: "about",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
-  }
-];
+//Ovde definisemo nase rute kao objekte, path je putanja u browseru, npr. /items, /posts
+//component je komponenta koja se prikazuje kada se ucita ta ruta.
+const routes = [{
+  path: "/",
+  name: "home",
+  component: ListView
+}];
 
+// Instancira se VueRouter, standardan nacin za uvezivanje routera.
+// Cli sam odradi ovo za nas
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
